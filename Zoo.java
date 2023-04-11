@@ -73,4 +73,25 @@ public class Zoo {
         }
         return (Animal)champ;
     }
+
+    private List<Floatable> floats (){            // список плавающих
+        List<Floatable> res2 = new ArrayList<>();
+        for (Animal animal:animals) {
+            if (animal instanceof Floatable) {
+                res2.add((Floatable) animal);
+            }
+        }
+        return res2;
+    }
+
+    public Animal championByFloat () {            // определяем чемпиона 
+        List<Floatable> start2 = floats();
+        Floatable champ2 = start2.get(0);
+        for (Floatable floats:start2) {
+            if (champ2.floatSpeed()< floats.floatSpeed()){
+                champ2 = floats;
+            }
+        }
+        return (Animal)champ2;
+    }
 }
